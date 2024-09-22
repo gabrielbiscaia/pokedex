@@ -8,6 +8,9 @@ interface PokemonCardProps {
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
+  const capitalizeFirstLetter = (string: string): string =>
+    string.charAt(0).toUpperCase() + string.slice(1);
+
   return (
     <div className="bg-white shadow-md rounded-lg p-4">
       <Image
@@ -17,7 +20,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         height={200}
         className="mx-auto"
       />
-      <h2 className="text-xl font-semibold text-center mt-2">{pokemon.name}</h2>
+      <h2 className="text-xl font-semibold text-center text-black">
+        {capitalizeFirstLetter(pokemon.name)}
+      </h2>
       <div className="flex justify-center mt-2">
         {pokemon.types.map((type) => (
           <span
