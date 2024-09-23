@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import typeColors from "../constants/typeColors";
 import { PokemonDetails } from "../types/pokemon";
-
 interface PokemonCardProps {
   pokemon: PokemonDetails;
 }
@@ -11,8 +10,15 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   const capitalizeFirstLetter = (string: string): string =>
     string.charAt(0).toUpperCase() + string.slice(1);
 
+  const formatPokemonNumber = (id: number): string => {
+    return id.toString().padStart(4, "0");
+  };
+
   return (
-    <div className="bg-white shadow-md rounded-lg p-4">
+    <div className="bg-white shadow-md rounded-lg relative">
+      <span className="absolute top-2 right-2 text-black px-2 py-1 text-sm font-bold">
+        {formatPokemonNumber(pokemon.id)}
+      </span>
       <Image
         src={pokemon.sprites.front_default}
         alt={pokemon.name}
@@ -20,18 +26,20 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         height={200}
         className="mx-auto"
       />
-      <h2 className="text-xl font-semibold text-center text-black">
-        {capitalizeFirstLetter(pokemon.name)}
-      </h2>
-      <div className="flex justify-center gap-2 mt-2">
-        {pokemon.types.map((type, index) => (
-          <span
-            key={index}
-            className={`text-sm rounded-full px-4 py-2 text-white ${typeColors[type.type.name] || "bg-gray-200 text-black"}`}
-          >
-            {capitalizeFirstLetter(type.type.name)}
-          </span>
-        ))}
+      <div className="bg-slate-200 p-4 rounded-lg">
+        <h2 className="text-xl font-semibold text-center text-black">
+          {capitalizeFirstLetter(pokemon.name)}
+        </h2>
+        <div className="flex justify-center gap-2 mt-2">
+          {pokemon.types.map((type, index) => (
+            <span
+              key={index}
+              className={`text-sm rounded-full px-4 py-2 text-white ${typeColors[type.type.name] || "bg-gray-200 text-black"}`}
+            >
+              {capitalizeFirstLetter(type.type.name)}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
