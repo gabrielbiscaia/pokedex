@@ -28,9 +28,9 @@ export default function PokemonList({ initialPokemonList }: PokemonListProps) {
   }, [initialPokemonList]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      {pokemonDetails.map((pokemon) => (
-        <PokemonCard key={pokemon.id} pokemon={pokemon} />
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mx-auto">
+      {pokemonDetails.map((pokemon, index) => (
+        <PokemonCard key={index} pokemon={pokemon} />
       ))}
     </div>
   );
