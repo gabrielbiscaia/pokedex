@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ onSearchChange }) => {
     <header className="bg-white p-4 rounded-lg mb-4">
       <div className="flex items-center justify-center">
         <Image src={pokeballIco} alt="Pokeball" width={40} height={40} />
-        <h1 className="text-red-500 text-4xl font-bold">Pokédex</h1>
+        <h1 className="text-slate-800 text-4xl font-bold">Pokédex</h1>
       </div>
       <div className="mt-4">
         <SearchBar

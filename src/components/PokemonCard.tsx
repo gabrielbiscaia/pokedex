@@ -15,8 +15,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg relative">
-      <span className="absolute top-2 right-2 text-black px-2 py-1 text-sm font-bold">
+    <div className="bg-white shadow-md rounded-xl relative">
+      <span className="absolute top-2 right-2 text-black px-2 py-1 text-sm font-semibold">
         {formatPokemonNumber(pokemon.id)}
       </span>
       <Image
@@ -26,8 +26,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         height={200}
         className="mx-auto"
       />
-      <div className="bg-slate-200 p-4 rounded-lg">
-        <h2 className="text-xl font-semibold text-center text-black">
+      <div className="bg-slate-200 p-4 rounded-xl">
+        <h2 className="text-xl text-center text-black">
           {capitalizeFirstLetter(pokemon.name)}
         </h2>
         <div className="flex justify-center gap-2 mt-2">
