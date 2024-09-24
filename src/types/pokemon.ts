@@ -21,4 +21,18 @@ export interface PokemonDetails {
   sprites: {
     front_default: string;
   };
+  weight: number;
+  height: number;
+  abilities: {
+    ability: {
+      name: string;
+    };
+  }[];
+  stats: {
+    base_stat: number;
+    effort: number;
+    stat: {
+      name: string;
+    };
+  }[];
 }
