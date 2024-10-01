@@ -7,6 +7,7 @@ import {
 } from "../types/pokemon";
 import { getPokemonDetails } from "../utils/api";
 import PokemonCard from "./PokemonCard";
+import PokemonSkeletonCard from "./PokemonSkeletonCard";
 import Header from "./Header";
 
 interface PokemonListProps {
@@ -17,9 +18,11 @@ export default function PokemonList({ initialPokemonList }: PokemonListProps) {
   const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails[]>([]);
   const [filteredPokemon, setFilteredPokemon] = useState<PokemonDetails[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchPokemonDetails = async () => {
+      setIsLoading(true);
       const details = await Promise.all(
         initialPokemonList.results.map(async (pokemon) =>
           getPokemonDetails(pokemon.name),
@@ -27,6 +30,7 @@ export default function PokemonList({ initialPokemonList }: PokemonListProps) {
       );
       setPokemonDetails(details);
       setFilteredPokemon(details);
+      setIsLoading(false);
     };
     fetchPokemonDetails();
   }, [initialPokemonList]);
@@ -46,9 +50,13 @@ export default function PokemonList({ initialPokemonList }: PokemonListProps) {
     <>
       <Header onSearchChange={handleSearchChange} />
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mx-auto">
-        {filteredPokemon.map((pokemon, index) => (
-          <PokemonCard key={index} pokemon={pokemon} />
-        ))}
+        {isLoading
+          ? Array.from({ length: 18 }).map((_, index) => (
+              <PokemonSkeletonCard key={index} />
+            ))
+          : filteredPokemon.map((pokemon, index) => (
+              <PokemonCard key={index} pokemon={pokemon} />
+            ))}
       </div>
     </>
   );
