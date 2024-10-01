@@ -7,6 +7,7 @@ import { useParams, useRouter } from "next/navigation";
 import { getPokemonDetails } from "../../../utils/api";
 import { PokemonDetails } from "../../../types/pokemon";
 import typeColors from "../../../constants/typeColors";
+import PokemonSkeletonDetails from "../../../components/PokemonSkeletonDetails";
 
 const PokemonPage: React.FC = () => {
   const [pokemon, setPokemon] = useState<PokemonDetails | null>(null);
@@ -43,11 +44,7 @@ const PokemonPage: React.FC = () => {
   };
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-white text-xl">
-        Loading...
-      </div>
-    );
+    return <PokemonSkeletonDetails />;
   }
 
   if (!pokemon || pokemon.id > 151) {
