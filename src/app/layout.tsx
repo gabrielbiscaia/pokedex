@@ -5,8 +5,7 @@ import "./globals.css";
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Pokedex",
-  description: "A Pokedex of the First Generation Pokemon",
+  title: "Gabriel Biscaia's Pokedex",
 };
 
 export default function RootLayout({
