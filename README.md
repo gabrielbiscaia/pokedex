@@ -1,5 +1,8 @@
 # Pokedex
 
+![image](https://github.com/user-attachments/assets/6982fb76-b222-4c51-b67a-0ed2ddb8186f)
+
+
 ## 🔗 Link
 https://pokedex.gabrielbiscaia.com.br/
 
