@@ -1,9 +1,40 @@
-## Run Project
+# Pokedex
 
-First, run the development server:
+## 🔗 Link
+https://pokedex.gabrielbiscaia.com.br/
 
-```bash
-npm run dev
-```
+## 🎯 Objective
+Create a Pokedex application that will be used to display a list of Pokemons.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧰 Technologies
+- Next.js
+- Tailwind CSS
+- React
+- TypeScript
+
+## 📝 Requirements
+- Node.js
+- NPM
+- Git
+
+## 🛠️ Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/gabrielbiscaia/pokedex/.git
+   cd pokedex/
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## ▶️ Running the Application
+
+1. Start the NestJS application:
+   ```bash
+   npm run dev
+   ```
+
+2. The APP will be available at `http://localhost:3000`
